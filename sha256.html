@@ -1,0 +1,45 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>SHA-256 Tool</title><meta name="description" content="Online SHA-256 and HMAC-SHA-256 hash generator with encoding options."/><meta property="og:title" content="SHA-256 Tool"/><meta property="og:description" content="Online SHA-256 and HMAC-SHA-256 hash generator with encoding options."/><meta property="og:type" content="website"/><meta property="og:image" content="assets/logo.svg"/><meta property="og:site_name" content="SHA-256 Tool"/><link rel="stylesheet" href="css/style.css"/></head><body>
+<div id="rA"><aside id="n" aria-hidden="true"></aside><main id="p" role="main"><h1>SHA-256 / HMAC Generator</h1>
+<form id="F" class="tool-form" onsubmit="return false" autocomplete="off" novalidate>
+  <label for="i">Message</label>
+  <textarea id="i" name="message" placeholder="Type or paste text…" rows="6"></textarea>
+  <label for="j">Key (HMAC)</label>
+  <input id="j" name="key" type="text" placeholder="Optional key for HMAC"/>
+  <div class="controls"><button id="r" type="button">Digest</button><button id="c" type="button">Clear</button></div>
+  <label for="o">Result</label>
+  <pre id="o" aria-live="polite" readonly></pre>
+</form></main></div>
+
+<!-- core scripts -->
+<script src="js/sha256-hard-obf.js" defer></script>
+<script src="js/hmac.js" defer></script>
+<script src="js/encodings.js" defer></script>
+<script src="js/clipboard.js" defer></script>
+
+<!-- compact bootstrap -->
+<script>
+(function(){'use strict';
+var $=function(s){return document.querySelector(s);},r=$('#r'),clr=$('#c'),msg=$('#i'),key=$('#j'),out=$('#o');
+function show(v){ if(typeof v==='string') out.textContent=v; else if(Array.isArray(v)) out.textContent=v.join(''); else out.textContent=String(v); }
+function compute(){
+  var t=msg.value||'',k=key.value||'';
+  try{
+    if(k){
+      if(window.sha256 && window.sha256.hmac && typeof window.sha256.hmac.hex==='function'){ show(window.sha256.hmac.hex(k,t)); }
+      else if(window.hmac && typeof window.hmac.hex==='function'){ show(window.hmac.hex(k,t)); }
+      else show('HMAC implementation not found');
+    } else {
+      if(typeof window.sha256==='function'){ show( sha256(t) ); }
+      else if(typeof window.method==='function'){ show( method(t) ); }
+      else show('SHA-256 implementation not found');
+    }
+  }catch(e){ show('Error: '+(e&&e.message?e.message:String(e))); }
+}
+r.addEventListener('click',compute,false);
+msg.addEventListener('keydown',function(e){ if(e.ctrlKey&&e.key==='Enter') compute(); },false);
+clr.addEventListener('click',function(){ msg.value=''; key.value=''; out.textContent=''; },false);
+try{ var s=localStorage.getItem('s_v1'); if(s) msg.value=s; }catch(e){}
+window.addEventListener('beforeunload',function(){ try{ localStorage.setItem('s_v1', msg.value||''); }catch(e){} });
+})();
+</script>
+</body></html>
