@@ -53,7 +53,7 @@ Once you have the Roobet Predictor or demo running, follow these steps:
 
 1. Open the app and load a sample session or import a saved session from `samples/`.
 2. Select Roobet as the target platform and review the probability visualizer, session logs, and AI summaries.
-3. Use the **server seed hash decrypt** helper to learn how published hashes and seeds are displayed by Stake fairness systems; this is for education and transparency, not guaranteed prediction.
+3. Use the **server seed hash decrypt** helper to learn how published hashes and seeds are displayed by Roobet fairness systems; this is for education and transparency, not guaranteed prediction.
 
 ## Frequently Asked Questions (FAQ)
 
